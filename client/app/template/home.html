@@ -1,0 +1,9 @@
+<h1>Liste</h1>
+<button ui-sref="Ajouter" ui-sref-active="active">Ajouter</button>
+<div ng-controller="getListe">
+       
+       <ul>
+		<li ng-repeat = "item in Liste"> <a ui-sref= "Precision({id : item._id})" ui-sref-active="active"> {{item.Nom}} {{item.Prenom}} </a> <button id="lien_suppression" ng-click="removeEleve(item)" > supprimer </button> </li>       	
+       </ul>
+
+	</div>

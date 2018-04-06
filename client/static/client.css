@@ -1,0 +1,16 @@
+body
+{
+	background-color: antiquewhite;
+}
+
+input
+{
+	display: block;
+	padding: 3px;
+	width: 200px;
+}
+
+#lien_suppression
+{
+	margin-left: 25px;
+}
