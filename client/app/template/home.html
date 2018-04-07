@@ -1,9 +1,20 @@
-<h1>Liste</h1>
-<button ui-sref="Ajouter" ui-sref-active="active">Ajouter</button>
-<div ng-controller="getListe">
-       
-       <ul>
-		<li ng-repeat = "item in Liste"> <a ui-sref= "Precision({id : item._id})" ui-sref-active="active"> {{item.Nom}} {{item.Prenom}} </a> <button id="lien_suppression" ng-click="removeEleve(item)" > supprimer </button> </li>       	
-       </ul>
+  <h1>Pokedex</h1>
+    <div >
+<div class="navbar-form navbar-center">
+  <div class="form-group">
+<input type="text" class="form-control" placeholder="Recherche" ng-model="resultat">
+</div>
+<button type="button" ng-click="search(resultat)" ui-sref="search({name:resultat})" class="btn btn-default">Rechecher</button>
 
-	</div>
+</div>
+
+      <div class="row">
+        <div   style="padding:10px;" dir-paginate="Card in pokedexData | orderBy:'nationalPokedexNumber'| unique:'nationalPokedexNumber' | itemsPerPage: 12" class="col-lg-3 text-center zoom">
+          <a ui-sref="getPokedexDetail({id:Card.id})" ui-sref-active="active"><img ng-src="{{Card.imageUrl}}"></a>
+        </div>
+      </div>
+
+      <dir-pagination-controls></dir-pagination-controls>
+
+    </div>
+	

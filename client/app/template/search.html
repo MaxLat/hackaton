@@ -1,0 +1,13 @@
+  <div>
+    <div >
+
+      <div class="row">
+        <div   style="padding:10px;" ng-repeat="Card in test" class="col-lg-3 text-center zoom">
+          <a ui-sref="getPokedexDetail({id:Card.id})" ui-sref-active="active"><img ng-src="{{Card.imageUrl}}"></a>
+        </div>
+      </div>
+
+      <dir-pagination-controls></dir-pagination-controls>
+
+    </div>
+	</div>

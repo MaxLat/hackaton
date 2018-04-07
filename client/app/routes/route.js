@@ -1,12 +1,29 @@
-angular.module("app").config(function($stateProvider ,$urlRouterProvider ) {
+angular.module("app").config(function($stateProvider ,$urlRouterProvider,$locationProvider ) {
 
 
 var Index = {
     name: 'home',
     url: '/',
     templateUrl: 'app/template/home.html',
-    controller : 'getListe'
+    controller : 'getPokedex',
+    // controllerAs : 'getPokedexCtrl'
   }
+
+var search = {
+    name: 'search',
+    url: '/search/:name',
+    templateUrl: 'app/template/search.html',
+    controller : 'getPokedex',
+    // controllerAs : 'getPokedexCtrl'
+  }
+
+  var shop = {
+      name: 'shop',
+      url: '/shop',
+      templateUrl: 'app/template/shop.html'
+      // controllerAs : 'getPokedexCtrl'
+    }
+
 
   var Ajouter = {
     name: 'Ajouter',
@@ -15,25 +32,38 @@ var Index = {
     controller : 'Ajouter'
   }
 
-  var aboutState = {
-    name: 'about',
-    url: '/about',
-    template: '<h3>Its the UI-Router hello world app!</h3>'
+  var signUp = {
+    name: 'signUp',
+    url: '/signup',
+    templateUrl: 'app/template/signup.html',
+    controller: 'addUser'
   }
 
-  var Precision = {
-    name: 'Precision',
-    url: '/Precision/:id',
-    templateUrl: 'app/template/personne-precision.html',
-    controller : 'getPrecision'
+  var signIn = {
+    name: 'signIn',
+    url: '/signin',
+    templateUrl: 'app/template/signin.html',
+    controller: 'loginctrl'
+  }
+
+  var getPokedexDetail = {
+    name: 'getPokedexDetail',
+    url: '/:id',
+    templateUrl: 'app/template/detail_card.html',
+    controller : 'getPokedexDetail'
   }
 
 
-  $urlRouterProvider.otherwise('/')  
 
-  $stateProvider.state(aboutState);
-  $stateProvider.state(Precision);
+  $stateProvider.state(signUp);
+  $stateProvider.state(getPokedexDetail);
   $stateProvider.state(Index);
+  $stateProvider.state(search);
   $stateProvider.state(Ajouter);
-  
+  $stateProvider.state(signIn);
+  $stateProvider.state(shop);
+
+  $urlRouterProvider.otherwise('/');
+  $locationProvider.html5Mode(true);
+
 });

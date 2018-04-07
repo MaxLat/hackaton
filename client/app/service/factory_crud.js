@@ -1,8 +1,7 @@
 angular.module("app")
-  .factory('Precision', ['$resource',
+  .factory('pokemonFactory', ['$resource',
     function($resource){
-      return $resource('/liste/:id', {id:'@_id'}, { 'update': {method: 'PUT'} });
+      return $resource('api/pokedex/:id', {id:'@_id'}, { 'update': {method: 'PUT'} });
 
     }]
  );
-

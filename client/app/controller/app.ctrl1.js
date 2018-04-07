@@ -1,56 +1,37 @@
-angular.module("app").controller("getListe", function($scope,Precision) {
+angular.module("app").controller("getPokedex", function($scope,pokemonFactory, searchFactory, $stateParams) {
 
-    var user = Precision.query(function(){
+    var user = pokemonFactory.query(function(){
 
-        $scope.Liste = user
 
-    });
-
-     $scope.removeEleve = function(item){
-        console.log('je suis dans removeEleve');
-        console.log(item._id);
-        item.$delete();
-
-        var user = Precision.query(function(){
-
-        $scope.Liste = user
+        console.log(user);
 
     });
 
-        
+    $scope.pokedexData = user;
+
+//crtl search bar
+    $scope.search = function(resultat){
+      var test= searchFactory.query({name: $scope.resultat});
+      console.log("en dessous scope test");
+      $scope.test = test;
+      console.log($scope.test);
     }
-
-
-    //seconde methode 
-  /* $http.get("/liste").then(function(response) {
-        console.log(response.data)
-        $scope.Liste = response.data
-
-    });*/
-    
 });
 
-angular.module("app").controller('getPrecision',  function($scope, $stateParams,Precision) {
-  
-    $scope.eleve = Precision.get({id: $stateParams.id})
 
-    $scope.updateEleve = function(eleve){
-        console.log($scope.eleve);
-        eleve.$update();
-    }
-   
+angular.module("app").controller('getPokedexDetail',  function($scope, $stateParams,pokemonFactory) {
 
+    $scope.infoPokemon = pokemonFactory.get({id: $stateParams.id})
+console.log($scope.infoPokemon);
 
 });
 
-angular.module("app").controller('Ajouter',  function($scope, $stateParams,Precision,$location) {
-  
-
-    $scope.Ajouter = function(eleve){
-       Precision.save(eleve);
-        $location.path('/');
-    }
-   
 
 
-});
+// angular.module("app").controller('searchPokemon',  function($scope, $stateParams,searchFactory) {
+// console.log('test search');
+//     $scope.search = function(resultat){
+//       $scope.resultat = searchFactory.get({name: $stateParams.name})
+// console.log($scope.resultat);
+// }
+// });

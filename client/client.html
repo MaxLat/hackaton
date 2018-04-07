@@ -3,20 +3,42 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../assets/client.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<title>Client</title>
 </head>
-<body ng-app="app">
- 
+<body ng-app="app" class="container">
+	<base href="/">
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+<ul class="nav navbar-nav">
+	<li><a href="/">Accueil</a></li>
+	<li><a href="/shop">Boutique</a></li>
+	<li> <a href="/signin">Connexion</a> </li>
+	<li> <a href="/signup">Inscription</a> </li>
+
+</ul>
+
+</div>
+
+</nav>
+
     <ui-view></ui-view>
 
 
 	<script type="text/javascript" src="/assets/lib/angular/angular.js"> </script>
+	<script type="text/javascript" src="/assets/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 	<script type="text/javascript" src="assets/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script type="text/javascript" src="assets/lib/angular-resource/angular-resource.js"></script>
 	<script type="text/javascript" src="/app/app.js"> </script>
 	<script type="text/javascript" src="app/service/factory_crud.js"> </script>
+	<script type="text/javascript" src="app/service/factory_crud_user.js"> </script>
+	<script type="text/javascript" src="app/service/factory_crud_search.js"> </script>
 	<script type="text/javascript" src="/app/controller/app.ctrl1.js"> </script>
+	<script type="text/javascript" src="/app/controller/app.ctrlUser.js"> </script>
 	<script type="text/javascript" src="/app/routes/route.js"> </script>
+	<script type="text/javascript" src="/assets/lib/angularUtils-pagination/dirPagination.js"></script>
+	<script type="text/javascript" src="/assets/lib/angular-filter/dist/angular-filter.min.js"></script>
+
 
 </body>
 </html>
